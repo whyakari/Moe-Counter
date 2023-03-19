@@ -1,7 +1,6 @@
 'use strict'
 
 const fs = require('fs')
-const config = require('config-yml')
 const express = require('express')
 const compression = require('compression')
 
@@ -66,7 +65,7 @@ app.get('/heart-beat', (req, res) => {
   console.log('heart-beat')
 });
 
-const listener = app.listen(config.app.port || 3000, () => {
+const listener = app.listen(process.env.PORT || 3000, () => {
   console.log('Your app is listening on port ' + listener.address().port)
 })
 
